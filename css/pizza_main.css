@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+
+/* 設定顏色變數，深色模式用 */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #fcf8ee;
+        --text-color: #242014;
+        --shadow: 36, 32, 20;
+        --primary: #e32c38;
+        --secondary: #e32c38d7;
+        color-scheme: light
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #242014;
+        --text-color: #fcf8ee;
+        --shadow: 252, 248, 238;
+        --primary: #fbb200;
+        --secondary: #fbb400d7;
+        color-scheme: dark
+    }
+}
+
+:root {
+    scroll-behavior: smooth;
+    --light: #ebe9e2;
+    --dark: #312300;
+    --gary: #8b8472;
+    --gap: 24px
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+h4 {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+p,
+.p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 700px) {
+    html {
+        font-size: 12px;
+    }
+
+    h1 {
+        line-height: 3rem;
+    }
+
+    h2 {
+        line-height: 2rem;
+    }
+
+    h3 {
+        line-height: 1.75rem;
+    }
+
+    h4 {
+        line-height: 1rem;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    gap: 24px;
+    background-color: var(--background);
+    box-shadow: 0px 0px 10px -2px rgba(var(--shadow), 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+#logo {
+    flex: 1;
+    text-align: center;
+    margin: 12px 24px 0px 24px;
+}
+
+#bar {
+    display: flex;
+    flex: 4;
+}
+
+#bar>a {
+    flex: 1;
+    text-align: center;
+    color: var(--primary);
+    /* for hover */
+    display: inline-block;
+    position: relative;
+}
+
+#bar>a:hover {
+    color: var(--secondary);
+}
+
+#bar>a::after {
+    content: "";
+    position: absolute;
+    height: 1.5px;
+    width: 0;
+    left: 50%;
+    bottom: -3px;
+    background: var(--secondary);
+    transition: all 0.3s ease-in;
+}
+
+#bar>a:hover::after {
+    --hover-underline: 4rem;
+    width: var(--hover-underline);
+    left: calc((100% - var(--hover-underline)) / 2);
+}
+
+#order {
+    flex: 2;
+    text-align: center;
+    margin: 0 24px;
+}
+
+.button {
+    background-color: var(--primary);
+    color: var(--background);
+    white-space: nowrap;
+    padding: 8px 24px;
+    border-radius: 20px;
+}
+
+.button:hover {
+    background-color: var(--secondary);
+    color: var(--background);
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+#nav-icon {
+    display: none;
+}
+
+button {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    #logo {
+        flex: 0;
+    }
+
+    #nav-icon {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+    }
+
+    #bar {
+        position: fixed;
+        right: -9rem;
+        top: 70px;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 9rem;
+        height: 18rem;
+        border-radius: 0.2rem;
+        background-color: var(--background);
+        transition: all 0.3s ease-in-out;
+    }
+
+    #bar>a {
+        flex: 0;
+        margin: 1rem;
+    }
+
+    #order {
+        margin: 1rem;
+    }
+
+
+    .button {
+        background-color: var(--primary);
+        color: var(--background);
+        padding: 8px 12px;
+        border-radius: 18px;
+    }
+}
+
+
+.full-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#head {
+    background: linear-gradient(90deg, var(--background) 0%, rgba(0, 0, 0, 0) 72%), url(../img/home_bg.jpg);
+    background-size: cover;
+    background-position: 30%;
+}
+
+#headinner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 0px 48px;
+    width: 50%;
+}
+
+.section-title {
+    color: var(--primary);
+    text-align: center;
+    padding: 64px 0 32px 0;
+}
+
+.title-hr {
+    margin-top: -25px;
+    border: 2px solid var(--secondary);
+    border-radius: 2px;
+    width: 11rem;
+}
+
+.select {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.option {
+    height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.option::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 50%;
+    border-bottom: var(--secondary) 1.5px solid;
+    transition: all 0.2s ease-in;
+}
+
+.option:hover::after {
+    width: 100%;
+    left: 0rem;
+}
+
+.option>* {
+    color: var(--secondary);
+    align-items: center;
+    line-height: 2rem;
+}
+
+.menu {
+    padding: 0 calc(24px + 3%);
+    gap: var(--gap);
+}
+
+.mealcard {
+    text-align: center;
+    background-color: var(--background);
+    border-radius: 40px;
+}
+
+.mealcard:hover {
+    box-shadow: 0px 0px 10px -2px rgba(var(--shadow), 0.2);
+}
+
+.mealcard>div>img {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+.mealcard>div:last-child {
+    text-align: left;
+    padding: 0 10%;
+    margin-bottom: 2rem;
+}
+
+.mealcard>div:last-child>* {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.mealname {
+    color: var(--primary);
+}
+
+.morebtn {
+    text-align: center;
+    margin: 48px 0;
+}
+
+
+.location {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: row;
+    align-items: center;
+}
+
+.store-info {
+    margin-left: 5%;
+    flex: 1.2;
+}
+
+.store-info>* {
+    margin-bottom: 1rem;
+}
+
+.map {
+    flex: 2;
+}
+
+.map>* {
+    border: 0;
+    width: 100%;
+    height: 250px;
+}
+
+
+/* for select animation */
+.mealcard,
+.location,
+.option {
+    transition: .3s ease opacity, .3s ease transform, .3s ease box-shadow;
+}
+
+.appetizers,
+.panini,
+.north,
+.central,
+.south,
+.taipei,
+.ntaipei,
+.taoyuan,
+.changhua,
+.tainan,
+.kaohsiung {
+    display: none;
+    opacity: 0;
+    transform: scale(0)
+}
+
+
+@media (max-width: 768px) {
+
+    .location {
+        margin: 0 15% 2rem 15%;
+        display: block;
+    }
+
+    .taipei,
+    .ntaipei,
+    .taoyuan,
+    .changhua,
+    .tainan,
+    .kaohsiung {
+        display: none;
+    }
+
+    .store-info {
+        margin: 0 5%;
+    }
+
+    .map>* {
+        border: 0;
+        width: 100%;
+        height: 250px;
+    }
+}
